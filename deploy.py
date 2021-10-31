@@ -1,3 +1,5 @@
+# KNN CLASSIFICATION:
+
 # Importing all the necessary libraries for my analysis
 
 from matplotlib.colors import Normalize
