@@ -4,7 +4,6 @@ from matplotlib.colors import Normalize
 import pandas as pd
 import numpy as np
 
-
 # Feature Engineering ,Preprocessing and Modeling
 
 from sklearn.model_selection import train_test_split,GridSearchCV
@@ -12,12 +11,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score,confusion_matrix,classification_report
 
-
 # Function to diable warnings
 
 import warnings
 warnings.filterwarnings("ignore")
-
 
 # Using the training features and the testing set to evaluate the best model on new data
 clean_df_train=pd.read_csv('Clean_df_train.csv')
@@ -27,12 +24,14 @@ print(clean_df_train.columns)
 print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
 # Checking the shape of my set and the datatypes
+
 def Shape(data):
     data.shape
     types=data.dtypes
     print("My dataset has ",data.shape[0],"rows and ",data.shape[1]," columns of type : ")
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     print(types)
+
 Shape(clean_df_train)
 
 # Defining my target variable
@@ -72,12 +71,15 @@ def model (pred,target,test_size):
     ac=accuracy_score(Y_test,Y_real_pred)
     cm=confusion_matrix(Y_test,Y_real_pred)
     cr=classification_report(Y_test,Y_real_pred)
+
     print('Accuracy Score:',ac,'\n',cm,'\n',cr)
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     print(" OPTIMUM MODEL: ")
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     print("                                                        ")
+
 # Defining the function for my best model
+
 def optimum(testing):
 
     # Tuning the metric and k neighbours to the best estimator to obtain the best model
@@ -106,11 +108,18 @@ def optimum(testing):
     ac_best=accuracy_score(Y_test,Y_best_pred)
     cm_best=confusion_matrix(Y_test,Y_best_pred)
     cr_best=classification_report(Y_test,Y_best_pred)
+
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("\n")
     print('Optimum Accuracy score:',ac_best,'\n',cm_best,'\n',cr_best)  
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
 # Instantiating the baseline model
 model (X,Y,0.2)
+
 # Calling the Optimum model
 optimum(X_test)
+
+print("\n")
+
+print("The Optimum is a better predictor as the number of false negative and false positives are reduced significantly, the accuracy is higher,the precision and the recall for positives is better than the baseline's ")
