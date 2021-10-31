@@ -117,7 +117,7 @@ def optimum(testing):
 # Instantiating the baseline model
 model (X,Y,0.2)
 
-# Calling the Optimum model
+# Calling the Optimum model,the test is the parameter input because the test can be any dataset for the model.
 optimum(X_test)
 
 print("\n")
