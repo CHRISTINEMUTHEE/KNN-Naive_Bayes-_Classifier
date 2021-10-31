@@ -67,14 +67,16 @@ def model (pred,target,test_size):
 
     # Predicting from the knn classifier
     Y_real_pred=knn.predict(X_test)
-    
+
     # Evaluating our model
     ac=accuracy_score(Y_test,Y_real_pred)
     cm=confusion_matrix(Y_test,Y_real_pred)
     cr=classification_report(Y_test,Y_real_pred)
-    print(ac,'\n',cm,'\n',cr)
+    print('Accuracy Score:',ac,'\n',cm,'\n',cr)
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-
+    print(" OPTIMUM MODEL: ")
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("                                                        ")
 # Defining the function for my best model
 def optimum(testing):
 
@@ -105,7 +107,7 @@ def optimum(testing):
     cm_best=confusion_matrix(Y_test,Y_best_pred)
     cr_best=classification_report(Y_test,Y_best_pred)
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-    print(ac_best,'\n',cm_best,'\n',cr_best)  
+    print('Optimum Accuracy score:',ac_best,'\n',cm_best,'\n',cr_best)  
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
 # Instantiating the baseline model
