@@ -64,6 +64,9 @@ optimum(X_test)
 print(X_train.shape)
 print(X_test.shape)
 # insert the values of X to obtain an outcome
-X1,X2,X3,X4,X5,X6=map[int(a) for a in input("Please insert six parameters ").split()]
-X=np.array(X1,X2,X3,X4,X5,X6)
-optimum(X)
+X1,X2,X3,X4,X5,X6=[int(a) for a in input("Please insert six parameters ").split()]
+knn=KNeighborsClassifier(n_neighbors=4,p=2)
+X=[[X1,X2,X3,X4,X5,X6]]
+Pred=knn.predict(X)
+print(Pred)
+# optimum(X)
